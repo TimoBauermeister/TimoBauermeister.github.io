@@ -1,0 +1,89 @@
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+html {
+    min-height: 100vh;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.75em;
+    font-size: 14px;
+    background-color: #000;
+    color: #aaa;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+main {
+    width: 75vw;
+    margin: 2rem auto;
+    flex: 1;
+    background-color: #242426;
+    border: 3px solid #aaa;
+    border-radius: 0.5rem;
+}
+
+header, footer {
+    padding: 1rem;
+    background-color: #242426;
+}
+
+header {
+    border-bottom: 3px solid #aaa;
+}
+
+footer {
+    border-top: 3px solid #aaa;
+    width: 100%;
+}
+
+section {
+    margin-bottom: 30px;
+}
+
+p {
+    font-size: 1rem;
+}
+
+hr {
+    border-color: #aaa;
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 2rem;
+    margin-top: 0;
+}
+
+.logo {
+    font-size: 2rem;
+    line-height: 3rem;
+}
+
+.logo:link, .logo:visited {
+    color: #aaa;
+    text-decoration: none;
+}
+
+.logo:active {
+    color: #888;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+
+h3 {
+    font-size: 1rem;
+    line-height: 1rem;
+    text-decoration: underline;
+}
