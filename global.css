@@ -99,11 +99,11 @@ a {
 }
 
 a:link, a:visited {
-    color: #aaa;
+    color: #BF724B;
 }
 
 a:active {
-    color: #888;
+    color: #CF825B;
 }
 
 .logo {
