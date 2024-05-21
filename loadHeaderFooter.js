@@ -1,6 +1,9 @@
 function loadHeader() {
     const headerElement = document.createElement('header');
-    const baseUrl = window.location.origin + '/TimoBauermeister.github.io';
+    let baseUrl = window.location.origin;
+    if (!baseUrl.includes('/TimoBauermeister.github.io')) {
+        baseUrl += '/TimoBauermeister.github.io';
+    }
 
     headerElement.innerHTML = `
         <a href="${baseUrl}" class="logo">WikiHazia</a>
