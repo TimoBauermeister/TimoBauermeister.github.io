@@ -40,13 +40,13 @@ main {
     padding: 3rem 3vw 1rem 3vw;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1200px) {
     main {
         width: 60vw;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     main {
         width: 90vw;
         margin: 7.2rem auto 2rem auto;
@@ -203,13 +203,13 @@ a:active {
     overflow-y: auto;
 }
 
-@media only screen and (max-width: 1250px) {
+@media only screen and (max-width: 1200px) {
     .menu {
         width: 30vw;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
     .burger-menu {
         display: flex;
         flex-direction: column;
