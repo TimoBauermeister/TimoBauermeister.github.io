@@ -1,8 +1,8 @@
 function loadHeader() {
     const headerElement = document.createElement('header');
     let baseUrl = window.location.origin;
-    if (!baseUrl.includes('/TimoBauermeister.github.io')) {
-        baseUrl += '/TimoBauermeister.github.io';
+    if (!baseUrl.toLowerCase().includes('/timobauermeister.github.io')) {
+        baseUrl += '/timobauermeister.github.io';
     }
 
     headerElement.innerHTML = `
