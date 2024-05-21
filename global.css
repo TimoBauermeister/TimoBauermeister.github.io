@@ -23,12 +23,25 @@ body {
 
 main {
     width: 75vw;
-    margin: 2rem auto;
+    margin: 7.2rem auto 2rem 2rem;
     flex: 1;
     background-color: #242426;
     border: 3px solid #aaa;
     border-radius: 0.5rem;
     padding: 3rem 3vw 1rem 3vw;
+}
+
+@media only screen and (max-width: 1250px) {
+    main {
+        width: 60vw;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        width: 90vw;
+        margin: 7.2rem auto 2rem auto;
+    }
 }
 
 header, footer {
@@ -38,6 +51,12 @@ header, footer {
 
 header {
     border-bottom: 3px solid #aaa;
+    display: flex;
+    position: fixed;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
 }
 
 footer {
@@ -79,6 +98,10 @@ p {
     margin-top: 0;
 }
 
+.menu ul ul {
+    margin-left: 1rem
+}
+
 li {
     font-size: 1rem;
     margin-top: 0;
@@ -86,12 +109,6 @@ li {
 
 hr {
     border-color: #aaa;
-}
-
-@media only screen and (max-width: 600px) {
-    main {
-        width: 90vw;
-    }
 }
 
 a {
@@ -140,7 +157,83 @@ a:active {
     margin: 0 0 1rem 1rem;
 }
 
+.menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin-bottom: 0.5rem;
+}
+
+.bar {
+    display: none;
+}
+
+.burger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 24px;
+    cursor: pointer;
+}
+
+.menu {
+    display: block;
+    position: fixed;
+    top: 7.2rem;
+    right: 0;
+    padding: 2rem;
+    border: 3px solid #aaa;
+    border-right: none;
+    background-color: #242426;
+    border-radius: 0.5rem 0 0 0.5rem;
+    width: 20vw;
+    height: 76vh;
+    overflow-y: auto;
+}
+
+@media only screen and (max-width: 1250px) {
+    .menu {
+        width: 30vw;
+    }
+}
+
 @media only screen and (max-width: 600px) {
+    .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 24px;
+        cursor: pointer;
+    }
+
+    .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background-color: #aaa;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .menu.show {
+        display: block;
+        position: absolute;
+        top: 5rem;
+        right: 0;
+        padding: 2rem;
+        border: 3px solid #aaa;
+        border-right: none;
+        background-color: #242426;
+        border-radius: 0 0 0 0.5rem;
+        width: 70vw;
+        height: auto;
+    }
+
     .content {
         max-width: 70vw;
         margin: auto;
