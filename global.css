@@ -152,8 +152,12 @@ a:active {
     margin: auto;
 }
 
-.img-right, .img-left {
+.img-sm {
     max-width: 150px;
+}
+
+.img-md {
+    max-width: 250px;
 }
 
 .img-left {
@@ -248,7 +252,11 @@ a:active {
         margin: auto;
     }
 
-    .img-right, .img-left {
-        max-width: 100px;
+    .img-sm {
+        max-width: 150px;
+    }
+
+    .img-sm {
+        max-width: 150px;
     }
 }

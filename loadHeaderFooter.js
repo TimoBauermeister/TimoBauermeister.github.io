@@ -17,7 +17,7 @@ function loadHeader() {
                 <li><a href="${baseUrl}/heirs-of-the-new-world/home.html">Die Erben der neuen Welt</a></li>
                 <ul>
                     <li><a href="${baseUrl}/heirs-of-the-new-world/adepten.html">Adepten</a></li>
-                    <li><a href="${baseUrl}/heirs-of-the-new-world/heiligtum.html">Heiligtum</a></li>
+                    <li><a href="${baseUrl}/heirs-of-the-new-world/kultstaette.html">Kultstätte</a></li>
                     <li><a href="${baseUrl}/heirs-of-the-new-world/hohe-priester.html">Hohe Priester</a></li>
                     <li><a href="${baseUrl}/heirs-of-the-new-world/sektenfuehrer.html">Sektenführer</a></li>
                 </ul>
