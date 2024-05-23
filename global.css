@@ -171,11 +171,6 @@ a:active {
     margin: 0 0 1rem 1rem;
 }
 
-.img-sm:hover, .img-md:hover  {
-    transition: transform 0.3s ease;
-    transform: scale(2);
-}
-
 .menu ul {
     list-style-type: none;
     padding: 0;
