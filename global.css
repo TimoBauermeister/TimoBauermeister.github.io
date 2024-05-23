@@ -259,10 +259,29 @@ a:active {
     }
 
     .img-sm {
-        max-width: 150px;
+        max-width: 250px;
+        width: 100%;
     }
 
     .img-md {
-        max-width: 150px;
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .img-left {
+        float: none;
+        margin: 0 auto 1rem auto;
+        display: block;
+    }
+
+    .img-right {
+        float: none;
+        margin: 0 auto 1rem auto;
+        display: block;
+    }
+
+    .img-sm:hover, .img-md:hover  {
+        transition: transform 0.3s ease;
+        transform: none;
     }
 }
