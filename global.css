@@ -12,6 +12,7 @@
 * {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    word-break: normal;
 }
 
 html {
@@ -172,7 +173,7 @@ a:active {
 
 .img-sm:hover, .img-md:hover  {
     transition: transform 0.3s ease;
-    transform: scale(1.2);
+    transform: scale(2);
 }
 
 .menu ul {
