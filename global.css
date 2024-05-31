@@ -5,7 +5,7 @@
     --color2: #ddd;
     --color3: #242426;
     --color4: #cc794e;
-    --color5: #CF825B;
+    --color5: #b06846;
     --color6: #888;
 }
 
@@ -137,6 +137,14 @@ a:link, a:visited {
 }
 
 a:active {
+    color: var(--color5);
+}
+
+b {
+    color: var(--color4);
+}
+
+a b:active {
     color: var(--color5);
 }
 

@@ -11,6 +11,7 @@
             font-size: 3rem;
             line-height: 3rem;
             text-align: center;
+            margin-bottom: 3rem;
         }
 
         @media only screen and (max-width: 768px) {
@@ -26,8 +27,12 @@
         span {
             font-size: 2rem;
             line-height: 2rem;
-            padding: 1rem;
             text-align: center;
+            display: block;
+            margin: 0 auto;
+            padding-top: 1rem;
+            width: 100%;
+            height: 100%;
         }
 
         @media only screen and (max-width: 768px) {
@@ -42,7 +47,8 @@
         }
 
         img {
-            max-height: 100%;
+            height: 100%;
+            margin: auto;
         }
 
         table {
@@ -62,13 +68,34 @@
             text-decoration: none;
         }
 
-        main a section {
+        td {
+            height: 150px;
+            width: 33%;
+        }
+
+        td img {
             display: flex;
         }
 
-        @media only screen and (max-width: 768px) {
-            main a section {
-                height: 75px;
+        .screen-bg {
+            display: initial;
+        }
+
+        .screen-sm {
+            display: none;
+        }
+
+        @media only screen and (max-width: 1200px) {
+            .screen-bg {
+                display: none;
+            }
+
+            .screen-sm {
+                display: initial;
+            }
+
+            td {
+                height: 150px;
             }
         }
 
@@ -83,12 +110,57 @@
 </head>
 <body>
 <main>
-    <h1>WikiHazia</h1>
-    <a href="heirs-of-the-new-world/home.html">
-        <section>
-            <img src="heirs-of-the-new-world/img/logo.png" alt="">
-            <span>Die Erben der neuen Welt</span>
-        </section>
+    <h1>Wiki<b>Hazia</b></h1>
+
+    <table class="screen-bg">
+        <tr>
+            <td>
+                <a href="heirs-of-the-new-world/home.html">
+                    <img src="heirs-of-the-new-world/img/logo.png" alt=">Die Erben der neuen Welt">
+                </a>
+            </td>
+            <td>
+                <a href="heirs-of-the-new-world/kultfuehrer.html">
+                    <img src="heirs-of-the-new-world/img/charonoth.png" alt="Charonoth">
+                </a>
+            </td>
+            <td>
+                <a href="heirs-of-the-new-world/kultstaette.html">
+                    <img src="heirs-of-the-new-world/img/auditorium.png" alt="Kultstätte">
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="heirs-of-the-new-world/home.html">
+                    <span>Die Erben der neuen Welt</span>
+                </a>
+            </td>
+            <td>
+                <a href="heirs-of-the-new-world/kultfuehrer.html">
+                    <span>Charonoth</span>
+                </a>
+            </td>
+            <td>
+                <a href="heirs-of-the-new-world/kultstaette.html">
+                    <span>Kultstätte</span>
+                </a>
+            </td>
+        </tr>
+    </table>
+    <a class="screen-sm" href="heirs-of-the-new-world/home.html">
+        <table>
+            <tr>
+                <td>
+                    <img src="heirs-of-the-new-world/img/logo.png" alt="Die Erben der neuen Welt">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Die Erben der neuen Welt</span>
+                </td>
+            </tr>
+        </table>
     </a>
 </main>
 <script src="loadHeaderFooter.js"></script>

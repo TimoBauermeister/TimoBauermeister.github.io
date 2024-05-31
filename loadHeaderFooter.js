@@ -6,7 +6,7 @@ function loadHeader() {
     }
 
     headerElement.innerHTML = `
-        <a href="${baseUrl}" class="logo">WikiHazia</a>
+        <a href="${baseUrl}" class="logo">Wiki<b>Hazia</b></a>
         <div class="burger-menu">
             <div class="bar"></div>
             <div class="bar"></div>
