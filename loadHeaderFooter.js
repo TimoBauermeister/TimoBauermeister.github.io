@@ -35,9 +35,14 @@ function loadHeader() {
 }
 
 function loadFooter() {
+    let baseUrl = window.location.origin;
+    if (!baseUrl.toLowerCase().includes('/timobauermeister.github.io')) {
+        baseUrl += '/timobauermeister.github.io';
+    }
+
     const footerElement = document.createElement('footer');
     footerElement.innerHTML = `
-      <p>&copy; 2024 WikiHazia. All rights reserved.</p>
+      <p><a href="${baseUrl}/heirs-of-the-new-world/private.html" class="hidden-a">&copy;</a> 2024 WikiHazia. All rights reserved.</p>
     `;
     document.body.insertAdjacentElement('beforeend', footerElement);
 }

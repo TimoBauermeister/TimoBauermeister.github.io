@@ -148,6 +148,13 @@ a b:active {
     color: var(--color5);
 }
 
+.hidden-a {
+    cursor: default;
+    color: var(--color2) !important;
+    text-decoration: unset;
+    font-weight: normal;
+}
+
 .logo {
     font-size: 2rem;
     line-height: 3rem;
