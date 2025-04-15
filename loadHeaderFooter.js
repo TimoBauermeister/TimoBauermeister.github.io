@@ -3,7 +3,8 @@ const pages = [
     'adepten.html',
     'kultstaette.html',
     'kultfuehrer.html',
-    'hohe-priester.html'
+    'hohe-priester.html',
+    'akademie.html'
 ];
 
 const fetchAndExtractContent = async (url) => {
@@ -78,6 +79,10 @@ function loadHeader() {
                     <li>
                         <a href="${baseUrl}/heirs-of-the-new-world/kultfuehrer.html">Kultführer</a>
                         <button class="copy-button" onclick="copyContentFromPage('kultfuehrer.html')">📋</button>
+                    </li>
+                    <li>
+                        <a href="${baseUrl}/heirs-of-the-new-world/akademie.html">Akademie</a>
+                        <button class="copy-button" onclick="copyContentFromPage('akademie.html')">📋</button>
                     </li>
                 </ul>
             </ul>
