@@ -1,0 +1,96 @@
+h1 {
+    font-size: 3rem;
+    line-height: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+h2 {
+    text-align: center;
+}
+
+span {
+    font-size: 2rem;
+    line-height: 2rem;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    padding-top: 1rem;
+    width: 100%;
+    height: 100%;
+}
+
+@media only screen and (max-width: 768px) {
+    span {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
+}
+
+a {
+    width: 100%;
+}
+
+img {
+    height: 100%;
+    margin: auto;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 3rem;
+}
+
+main {
+    justify-content: center;
+    margin: 7.2rem auto 2rem auto;
+}
+
+main a {
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+}
+
+td {
+    width: 33%;
+}
+
+td img {
+    height: 150px;
+    display: flex;
+}
+
+.screen-sm {
+    display: none;
+}
+
+@media only screen and (max-width: 1200px) {
+    .screen-bg {
+        display: none;
+    }
+
+    .screen-sm {
+        display: initial;
+    }
+
+    td img {
+        height: 150px;
+    }
+}
+
+section {
+    align-items: center;
+}
+
+.burger-menu, .menu  {
+    display: none;
+}
