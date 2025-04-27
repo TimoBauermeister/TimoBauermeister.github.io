@@ -106,11 +106,10 @@ function loadFooter() {
 
     const footerElement = document.createElement('footer');
     footerElement.innerHTML = `
-      <p><a href="${baseUrl}/heirs-of-the-new-world/private.html" class="hidden-a">&copy;</a> 2024 WikiHazia. All rights reserved.</p>
+      <p><a href="${baseUrl}/heirs-of-the-new-world/private.html" class="hidden-a">&copy;</a> 2025 WikiHazia. All rights reserved.</p>
     `;
     document.body.insertAdjacentElement('beforeend', footerElement);
 }
 
 loadHeader();
 loadFooter();
-
