@@ -111,5 +111,19 @@ function loadFooter() {
     document.body.insertAdjacentElement('beforeend', footerElement);
 }
 
+document.querySelectorAll('.tab-button').forEach(btn => {
+    btn.addEventListener('click', () => {
+        // 1. alle Buttons / Contents deaktivieren
+        document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+
+        // 2. geklickten Button + zugehörigen Content aktivieren
+        btn.classList.add('active');
+        const targetId = btn.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+    });
+});
+
+
 loadHeader();
 loadFooter();

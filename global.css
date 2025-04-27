@@ -171,13 +171,6 @@ a b:active {
     text-decoration: none;
 }
 
-.content {
-    max-width: 50vw;
-    margin: auto;
-    justify-content: center;
-    align-items: center;
-}
-
 .img-sm {
     max-width: 150px;
 }
@@ -320,3 +313,47 @@ a b:active {
 .mb {
     margin-bottom: 2rem;
 }
+
+.not-prepared {
+    list-style-type: circle;
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 2px solid var(--color6);
+    margin-bottom: 2rem;
+}
+
+.tab-button {
+    background: var(--color3);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    color: var(--color2);
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.2s;
+    border-radius: 0.5rem 0.5rem 0 0;
+    box-sizing: border-box;
+}
+
+.tab-button:not(.active):hover {
+    background: var(--color6);
+    color: var(--color1);
+    font-weight: bold;
+}
+
+.tab-button.active {
+    background: var(--color6);
+    color: var(--color1);
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+

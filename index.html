@@ -13,12 +13,26 @@
 </head>
 <script>
     if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./service-worker.js')
-                .then(reg => console.log('SW registriert:', reg.scope))
-                .catch(err => console.error('SW-Fehler:', err));
-        });
+        const isLocalhost = Boolean(
+            location.hostname === 'localhost' ||
+            location.hostname === '[::1]' ||
+            location.hostname.match(/^127(?:\.(?:25[0-5]|2[0-4]\d|[01]?\d?\d)){3}$/)
+        );
+        if (!isLocalhost && location.protocol === 'https:') {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => console.log('SW registriert:', reg.scope))
+                    .catch(err => console.error('SW-Fehler:', err));
+            });
+        } else {
+            window.addEventListener('load', async () => {
+                const regs = await navigator.serviceWorker.getRegistrations();
+                regs.forEach(r => r.unregister());
+                console.log('Lokale SWs de-registriert');
+            });
+        }
     }
+
 </script>
 <body>
 <main>
@@ -29,14 +43,6 @@
                 <img src="heirs-of-the-new-world/img/logo.webp" alt="Die Erben der neuen Welt">
                 <h2>Die Erben der neuen Welt</h2>
             </a>
-            <a href="heirs-of-the-new-world/adepten.html" class="card">
-                <img src="heirs-of-the-new-world/img/adepts.webp" alt="Adepten">
-                <h2>Adepten</h2>
-            </a>
-            <a href="heirs-of-the-new-world/kultstaette.html" class="card">
-                <img src="heirs-of-the-new-world/img/auditorium.webp" alt="Kultstätte">
-                <h2>Kultstätte</h2>
-            </a>
             <a href="heirs-of-the-new-world/kultfuehrer.html" class="card">
                 <img src="heirs-of-the-new-world/img/charonoth.webp" alt="Kultführer Charonoth">
                 <h2>Charonoth</h2>
@@ -44,6 +50,14 @@
             <a href="heirs-of-the-new-world/hohe-priester.html" class="card">
                 <img src="heirs-of-the-new-world/img/high-priest.webp" alt="Hohe Priester">
                 <h2>Hohe Priester</h2>
+            </a>
+            <a href="heirs-of-the-new-world/adepten.html" class="card">
+                <img src="heirs-of-the-new-world/img/adepts.webp" alt="Adepten">
+                <h2>Adepten</h2>
+            </a>
+            <a href="heirs-of-the-new-world/kultstaette.html" class="card">
+                <img src="heirs-of-the-new-world/img/auditorium.webp" alt="Kultstätte">
+                <h2>Kultstätte</h2>
             </a>
             <a href="heirs-of-the-new-world/elarion.html" class="card">
                 <img src="heirs-of-the-new-world/img/elarion.webp" alt="Elarion">
