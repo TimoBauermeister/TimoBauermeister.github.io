@@ -1,4 +1,4 @@
-const CACHE_NAME = 'site-cache-v2';
+const CACHE_NAME = 'site-cache-v3';
 const ASSETS = [
     './',
     './index.html',
@@ -11,27 +11,29 @@ const ASSETS = [
     './favicon-512x512.png',
 ];
 
-self.addEventListener('install', event => {
-    event.waitUntil(
+self.addEventListener('install', evt => {
+    evt.waitUntil(
         caches.open(CACHE_NAME)
             .then(cache => cache.addAll(ASSETS))
+            .then(() => self.skipWaiting())    // <- activate right away
     );
 });
+
+self.addEventListener('activate', evt => {
+    evt.waitUntil(
+        caches.keys().then(keys =>
+            Promise.all(
+                keys.filter(k => k !== CACHE_NAME)
+                    .map(k => caches.delete(k))
+            )
+        ).then(() => self.clients.claim())     // <- take control of pages
+    );
+});
+
 
 self.addEventListener('fetch', event => {
     event.respondWith(
         caches.match(event.request)
             .then(cached => cached || fetch(event.request))
-    );
-});
-
-self.addEventListener('activate', event => {
-    event.waitUntil(
-        caches.keys().then(keys =>
-            Promise.all(
-                keys.filter(key => key !== CACHE_NAME)
-                    .map(key => caches.delete(key))
-            )
-        )
     );
 });

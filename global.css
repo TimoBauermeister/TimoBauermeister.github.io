@@ -339,7 +339,7 @@ a b:active {
 
 .tab-button:not(.active):hover {
     background: var(--color6);
-    color: var(--color1);
+    color: var(--color2);
     font-weight: bold;
 }
 
