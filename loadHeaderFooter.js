@@ -13,26 +13,18 @@ function loadHeader() {
             <div class="bar"></div>
         </div>
         <nav class="menu">
-            <ul>
-                <li>
-                    <a href="${baseUrl}/heirs-of-the-new-world/home.html">Die Erben der neuen Welt</a>
-                </li>
-                <li>
-                    <a href="${baseUrl}/heirs-of-the-new-world/adepten.html">Adepten</a>
-                </li>
-                <li>
-                    <a href="${baseUrl}/heirs-of-the-new-world/kultstaette.html">Kultstätte</a>
-                </li>
-                <li>
-                    <a href="${baseUrl}/heirs-of-the-new-world/hohe-priester.html">Hohe Priester</a>
-                </li>
-                <li>
-                    <a href="${baseUrl}/heirs-of-the-new-world/kultfuehrer.html">Kultführer</a>
-                </li>
-                <li>
-                    <a href="${baseUrl}/heirs-of-the-new-world/elarion.html">Akademie</a>
-                </li>
-            </ul>
+          <ul>
+            <li>🌙 <a href="${baseUrl}/heirs-of-the-new-world/home.html">Die Erben der neuen Welt</a></li>
+            <li>💀 <a href="${baseUrl}/heirs-of-the-new-world/kultfuehrer.html">Kultführer</a></li>
+            <li>🧙 <a href="${baseUrl}/heirs-of-the-new-world/hohe-priester.html">Hohe Priester</a></li>
+            <li>⚔️ <a href="${baseUrl}/heirs-of-the-new-world/adepten.html">Adepten</a></li>
+            <li>🏛️ <a href="${baseUrl}/heirs-of-the-new-world/kultstaette.html">Kultstätte</a></li>
+            <li>🎓 <a href="${baseUrl}/heirs-of-the-new-world/elarion.html">Akademie</a></li>
+            <li>⛪ <a href="${baseUrl}/heirs-of-the-new-world/church-of-order.html">Kirche der Ordnung</a></li>
+            <li>🔮 <a href="${baseUrl}/heirs-of-the-new-world/magic-artifacts.html">Magische Artefakte</a></li>
+            <li>🐦‍🔥️ <a href="${baseUrl}/heirs-of-the-new-world/sons-of-riley.html">Die Söhne von Riley</a></li>
+            <li>🩸 <a href="${baseUrl}/heirs-of-the-new-world/the-blood-hunters.html">Die Blutjäger</a></li>
+          </ul>
         </nav>
     `;
 
