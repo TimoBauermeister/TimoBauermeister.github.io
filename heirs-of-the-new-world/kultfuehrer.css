@@ -1,0 +1,44 @@
+.table-wrapper .tables {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;          /* allow wrapping below */
+    align-items: flex-start;
+}
+
+.table-wrapper .tables table {
+    flex: 1 1 calc(50% - 0.5rem);
+    border-collapse: collapse;
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .table-wrapper .tables table {
+        flex: 1 1 100%;
+    }
+
+    .table-wrapper .tables {
+        row-gap: 1.5rem;
+        column-gap: 1rem;
+    }
+}
+
+.table-wrapper .tables td {
+    padding: 0.3em 0.5em;
+}
+
+.has-prof:after {
+    content: "🎖️";
+    display: inline-block;
+    margin-right: 0.3em;
+}
+.has-adv:after {
+    content: "🎲";
+    display: inline-block;
+    margin-right: 0.3em;
+}
+
+@media (max-width: 600px) {
+    .table-wrapper .tables table {
+        flex: 1 1 100%;
+    }
+}
