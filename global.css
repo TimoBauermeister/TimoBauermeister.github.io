@@ -116,10 +116,6 @@ p {
     margin-top: 0;
 }
 
-.menu ul ul {
-    margin-left: 1rem
-}
-
 li {
     font-size: 1rem;
     margin-top: 0;
@@ -131,13 +127,14 @@ hr {
 
 a {
     font-weight: bold;
+    transition: color 0.3s;
 }
 
 a:link, a:visited {
     color: var(--color4);
 }
 
-a:active {
+a:active, a:hover {
     color: var(--color5);
 }
 
@@ -197,6 +194,17 @@ a b:active {
 
 .menu li {
     margin-bottom: 0.5rem;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--color4);
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--color5);
+    text-decoration: underline;
 }
 
 .bar {

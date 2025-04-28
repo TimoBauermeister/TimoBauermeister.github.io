@@ -1,48 +1,3 @@
-const pages = [
-    'home.html',
-    'adepten.html',
-    'kultstaette.html',
-    'kultfuehrer.html',
-    'hohe-priester.html',
-    'elarion.html'
-];
-
-const fetchAndExtractContent = async (url) => {
-    try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(`Failed to fetch ${url}`);
-        const html = await response.text();
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(html, 'text/html');
-        const contents = [...doc.querySelectorAll('.content')];
-        return contents.map(content => content.textContent.trim()).join('\n\n');
-    } catch (error) {
-        console.error(error);
-        return `Error fetching ${url}: ${error.message}`;
-    }
-};
-
-const copyContentFromPage = async (pageUrl) => {
-    let text = '';
-
-    if (pageUrl === 'all') {
-        for (const page of pages) {
-            const content = await fetchAndExtractContent(page);
-            if (content) {
-                text += '\n\n\n\n' + content;
-            }
-        }
-    } else {
-        text = await fetchAndExtractContent(pageUrl);
-    }
-
-    try {
-        await navigator.clipboard.writeText(text.trim());
-    } catch (error) {
-        console.error('Fehler beim Kopieren in die Zwischenablage:', error);
-    }
-};
-
 function loadHeader() {
     const headerElement = document.createElement('header');
     let baseUrl = window.location.origin;
@@ -61,30 +16,22 @@ function loadHeader() {
             <ul>
                 <li>
                     <a href="${baseUrl}/heirs-of-the-new-world/home.html">Die Erben der neuen Welt</a>
-                    <button class="copy-button" onclick="copyContentFromPage('all')">📋</button>
                 </li>
-                <ul>
-                    <li>
-                        <a href="${baseUrl}/heirs-of-the-new-world/adepten.html">Adepten</a>
-                        <button class="copy-button" onclick="copyContentFromPage('adepten.html')">📋</button>
-                    </li>
-                    <li>
-                        <a href="${baseUrl}/heirs-of-the-new-world/kultstaette.html">Kultstätte</a>
-                        <button class="copy-button" onclick="copyContentFromPage('kultstaette.html')">📋</button>
-                    </li>
-                    <li>
-                        <a href="${baseUrl}/heirs-of-the-new-world/hohe-priester.html">Hohe Priester</a>
-                        <button class="copy-button" onclick="copyContentFromPage('hohe-priester.html')">📋</button>
-                    </li>
-                    <li>
-                        <a href="${baseUrl}/heirs-of-the-new-world/kultfuehrer.html">Kultführer</a>
-                        <button class="copy-button" onclick="copyContentFromPage('kultfuehrer.html')">📋</button>
-                    </li>
-                    <li>
-                        <a href="${baseUrl}/heirs-of-the-new-world/elarion.html">Akademie</a>
-                        <button class="copy-button" onclick="copyContentFromPage('elarion.html')">📋</button>
-                    </li>
-                </ul>
+                <li>
+                    <a href="${baseUrl}/heirs-of-the-new-world/adepten.html">Adepten</a>
+                </li>
+                <li>
+                    <a href="${baseUrl}/heirs-of-the-new-world/kultstaette.html">Kultstätte</a>
+                </li>
+                <li>
+                    <a href="${baseUrl}/heirs-of-the-new-world/hohe-priester.html">Hohe Priester</a>
+                </li>
+                <li>
+                    <a href="${baseUrl}/heirs-of-the-new-world/kultfuehrer.html">Kultführer</a>
+                </li>
+                <li>
+                    <a href="${baseUrl}/heirs-of-the-new-world/elarion.html">Akademie</a>
+                </li>
             </ul>
         </nav>
     `;
@@ -113,11 +60,9 @@ function loadFooter() {
 
 document.querySelectorAll('.tab-button').forEach(btn => {
     btn.addEventListener('click', () => {
-        // 1. alle Buttons / Contents deaktivieren
         document.querySelectorAll('.tab-button').forEach(b => b.classList.remove('active'));
         document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
 
-        // 2. geklickten Button + zugehörigen Content aktivieren
         btn.classList.add('active');
         const targetId = btn.getAttribute('data-target');
         document.getElementById(targetId).classList.add('active');
