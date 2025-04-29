@@ -135,8 +135,9 @@ a:active, a:hover {
 
 a.unavailable, a.unavailable:hover, a.unavailable:link, a.unavailable:visited, a.unavailable:active {
     color: var(--color5);
-    text-decoration: none;
-    cursor: auto;
+    text-decoration: none !important;
+    pointer-events: none;
+    cursor: default;
 }
 
 b {
@@ -241,7 +242,28 @@ a b:active {
     }
 }
 
+.menu-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
+}
+
+.menu-overlay.active {
+    display: block;
+}
+
+.menu {
+    z-index: 1000;
+}
+
+
 @media only screen and (max-width: 768px) {
+    /* Burger-Icon bleibt unverändert */
     .burger-menu {
         display: flex;
         flex-direction: column;
@@ -258,21 +280,40 @@ a b:active {
     }
 
     .menu {
-        display: none;
-    }
-
-    .menu.show {
         display: block;
-        position: absolute;
-        top: 5rem;
+        position: fixed;
+        top: 7.2rem;
         right: 0;
+        width: 70vw;
+        max-width: 300px;
+        min-width: 250px;
+        height: calc(100% - 7.2rem);
         padding: 2rem;
         border: 3px solid var(--color6);
         border-right: none;
         background-color: var(--color3);
-        border-radius: 0 0 0 0.5rem;
-        width: 70vw;
-        height: auto;
+        border-radius: 0.5rem 0 0 0.5rem;
+        overflow-y: auto;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 1000;
+    }
+
+    .menu.show {
+        transform: translateX(0);
+    }
+
+    .menu-overlay {
+        display: none;
+    }
+
+    .menu-overlay.active {
+        display: block;
+    }
+
+    main {
+        width: 90vw;
+        margin: 7.2rem auto 2rem auto;
     }
 
     .content {
@@ -302,7 +343,7 @@ a b:active {
         display: block;
     }
 
-    .img-sm:hover, .img-md:hover  {
+    .img-sm:hover, .img-md:hover {
         transition: transform 0.3s ease;
         transform: none;
     }
@@ -365,17 +406,21 @@ a b:active {
 
 @media only screen and (max-width: 600px) {
     .tabs {
-        border-bottom: none;
+        border: none;
+        gap: 0.25rem;
     }
 
     .tab-button {
         flex: 1 1 auto;
         min-width: 120px;
+        border-radius: 0.5rem;
+        border: none;
     }
 
     .tab-button.active {
+        border: none;
+        background: var(--color1);
         margin-bottom: 0;
-        border-bottom: 2px solid var(--color6);
     }
 }
 

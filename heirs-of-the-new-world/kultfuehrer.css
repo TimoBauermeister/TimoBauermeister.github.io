@@ -1,7 +1,7 @@
 .table-wrapper .tables {
     display: flex;
     gap: 1rem;
-    flex-wrap: wrap;          /* allow wrapping below */
+    flex-wrap: wrap;
     align-items: flex-start;
 }
 

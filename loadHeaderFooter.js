@@ -28,13 +28,31 @@ function loadHeader() {
         </nav>
     `;
 
-    const burgerMenu = headerElement.querySelector('.burger-menu');
-    const menu = headerElement.querySelector('.menu');
-    burgerMenu.addEventListener('click', () => {
-        menu.classList.toggle('show');
+    const currentPath = window.location.pathname;
+    headerElement.querySelectorAll('.menu a').forEach(a => {
+        if (a.getAttribute('href').endsWith(currentPath.split('/').pop())) {
+            a.classList.add('unavailable');
+        }
     });
 
+    const burgerMenu = headerElement.querySelector('.burger-menu');
+    const menu = headerElement.querySelector('.menu');
+
     document.body.insertAdjacentElement('afterbegin', headerElement);
+
+    const overlay = document.createElement('div');
+    overlay.className = 'menu-overlay';
+    document.body.appendChild(overlay);
+
+    burgerMenu.addEventListener('click', () => {
+        menu.classList.toggle('show');
+        overlay.classList.toggle('active');
+    });
+
+    overlay.addEventListener('click', () => {
+        menu.classList.remove('show');
+        overlay.classList.remove('active');
+    });
 }
 
 function loadFooter() {
