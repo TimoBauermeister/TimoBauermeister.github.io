@@ -132,7 +132,6 @@ main a {
 @media (max-width: 768px) {
     .cards {
         gap: 1rem;
-        grid-template-columns: 2fr;
     }
     .card h2 {
         font-size: 1rem;
@@ -142,7 +141,7 @@ main a {
 
 @media (max-width: 576px) {
     .cards {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
 }
 
