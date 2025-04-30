@@ -1,12 +1,9 @@
+/* ==========================================================================
+   1. TYPOGRAPHY
+   ========================================================================== */
 h1 {
     text-align: center;
     margin-bottom: 3rem;
-}
-
-@media only screen and (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
 }
 
 h2 {
@@ -14,23 +11,19 @@ h2 {
 }
 
 span {
+    display: block;
+    width: 100%;
+    height: 100%;
     font-size: 2rem;
     line-height: 2rem;
     text-align: center;
-    display: block;
     margin: 0 auto;
     padding-top: 1rem;
-    width: 100%;
-    height: 100%;
 }
 
-@media only screen and (max-width: 768px) {
-    span {
-        font-size: 1.5rem;
-        line-height: 1.5rem;
-    }
-}
-
+/* ==========================================================================
+   2. LINKS & IMAGES
+   ========================================================================== */
 a {
     width: 100%;
 }
@@ -42,21 +35,121 @@ img {
     margin: 0 auto;
 }
 
+/* ==========================================================================
+   3. MAIN LAYOUT
+   ========================================================================== */
 main {
     justify-content: center;
     margin: 7.2rem auto 2rem auto;
 }
 
 main a {
-    width: 100%;
     display: flex;
     justify-content: center;
+    width: 100%;
     text-decoration: none;
 }
 
+/* ==========================================================================
+   4. UTILITIES
+   ========================================================================== */
 .screen-sm {
     display: none;
 }
+
+.burger-menu,
+.menu {
+    display: none;
+}
+
+/* ==========================================================================
+   5. OVERVIEW SECTION
+   ========================================================================== */
+.overview {
+    max-width: 1000px;
+    margin: 1.5rem auto;
+}
+
+/* ==========================================================================
+   6. GRID LAYOUT FOR CARDS
+   ========================================================================== */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+/* ==========================================================================
+   7. CARD COMPONENT
+   ========================================================================== */
+.card {
+    --radius: 0.3rem;
+
+    position: relative;
+    aspect-ratio: 1/1;
+    width: 100%;
+    background-color: var(--color7);
+    border-radius: var(--radius);
+    overflow: hidden;
+
+    transition: transform 0.15s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.card img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    border: none;
+}
+
+.card::before {
+    position: absolute;
+    inset: 1px;
+    background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.6) 20%,
+            rgba(0, 0, 0, 0) 60%
+    );
+    border-radius: inherit;
+    z-index: 2;
+}
+
+.card h2 {
+    position: absolute;
+    bottom: 0;
+
+    margin: 0;
+    padding: 0.5rem 1rem;
+    min-height: 30%;
+
+    color: var(--color4);
+    font-size: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    display: flex;
+    align-items: center;    /* vertical centering */
+    justify-content: center;/* horizontal centering (if you want) */
+
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    border-radius:0;
+    z-index: 3;
+}
+
+.card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.6);
+    background-color: var(--color3);
+}
+
+/* ==========================================================================
+   8. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
 
 @media only screen and (max-width: 1200px) {
     .screen-bg {
@@ -68,83 +161,33 @@ main a {
     }
 }
 
-.burger-menu, .menu  {
-    display: none;
-}
+@media only screen and  (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
 
-/* ─────────────────────────────────────────────────────────
-   Overview-Section
-   ───────────────────────────────────────────────────────── */
-.overview {
-    max-width: 1000px;
-    margin: 1.5rem auto 1.5rem;
-}
+    span {
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+    }
 
-/* ─────────────────────────────────────────────────────────
-   Grid-Layout für die Karten
-   ───────────────────────────────────────────────────────── */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1.5rem;
-}
-
-/* ─────────────────────────────────────────────────────────
-   Einheitliche Karten-Styles
-   ───────────────────────────────────────────────────────── */
-.card {
-    background-color: var(--color7);
-    border-radius: 0.3rem;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-    justify-content: flex-start;
-}
-
-.card img {
-    width: 100%;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    border: none;
-    border-radius: 0;
-}
-
-.card h2 {
-    padding: 1rem;
-    text-align: center;
-    color: var(--color4);
-    font-size: 1.125rem;
-    border-bottom: none;
-    flex-shrink: 0;
-}
-
-.card:hover {
-    transform: translateY(-0.25rem);
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.6);
-    background-color: var(--color3);
-}
-
-.card:active {
-    transform: translateY(0);
-}
-
-/* ─────────────────────────────────────────────────────────
-   Responsive Breakpoints
-   ───────────────────────────────────────────────────────── */
-@media (max-width: 768px) {
     .cards {
         gap: 1rem;
     }
+
     .card h2 {
         font-size: 1rem;
-        padding: 0.75rem;
+        padding: 0.4rem 0.8rem;
     }
 }
 
-@media (max-width: 576px) {
+@media only screen and  (max-width: 600px) {
     .cards {
         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     }
-}
 
+    .card h2 {
+        font-size: 0.75rem;
+        padding: 0.4rem 0.8rem;
+    }
+}

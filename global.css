@@ -1,4 +1,7 @@
-@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+/* ==========================================================================
+   1. IMPORTS & VARIABLES
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 :root {
     --color1: #121212;
@@ -10,10 +13,13 @@
     --color7: #252525;
 }
 
-
-* {
+/* ==========================================================================
+   2. CSS RESET & BASE
+   ========================================================================== */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    -webkit-box-sizing: border-box;
     word-break: normal;
 }
 
@@ -23,52 +29,33 @@ html {
 
 body {
     font-family: 'Open Sans', sans-serif;
-    line-height: 1.75em;
     font-size: 14px;
+    line-height: 1.75em;
     background-color: var(--color1);
     color: var(--color2);
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     margin: 0;
+    min-height: 100vh;
 }
 
-main {
-    width: 75vw;
-    margin: 7.2rem auto 2rem 2rem;
-    flex: 1;
-    background-color: var(--color3);
-    border: 3px solid var(--color6);
-    border-radius: 0.3rem;
-    padding: 3rem 3vw 1rem 3vw;
-}
-
-@media only screen and (max-width: 1200px) {
-    main {
-        width: 60vw;
-    }
-}
-
-@media only screen and (max-width: 768px) {
-    main {
-        width: 90vw;
-        margin: 7.2rem auto 2rem auto;
-    }
-}
-
-header, footer {
+/* ==========================================================================
+   3. LAYOUT
+   ========================================================================== */
+header,
+footer {
     padding: 1rem;
     background-color: var(--color3);
 }
 
 header {
-    border-bottom: 3px solid var(--color6);
-    display: flex;
     position: fixed;
+    top: 0;
     width: 100%;
+    display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
+    border-bottom: 3px solid var(--color6);
     z-index: 1000;
 }
 
@@ -77,42 +64,47 @@ footer {
     width: 100%;
 }
 
+main {
+    flex: 1;
+    width: 75vw;
+    margin: 7.2rem auto 2rem 2rem;
+    padding: 3rem 3vw 1rem 3vw;
+    background-color: var(--color3);
+    border: 3px solid var(--color6);
+    border-radius: 0.3rem;
+}
+
 section {
-    margin: 0 auto 1rem auto;
-    display: flow-root;
     width: 100%;
     max-width: 700px;
+    margin: 0 auto 1rem;
+    display: block;
 }
 
-h1 {
-    font-size: 2rem;
-}
 
+
+/* ==========================================================================
+   4. TYPOGRAPHY & STRUCTURE
+   ========================================================================== */
+h1,
 h2 {
-    font-size: 1.5rem;
-}
-
-h1, h2 {
     width: 100%;
     padding-bottom: 10px;
-    border-bottom: 2px solid;
-    border-color: var(--color6);
-    line-height: 2rem;
     margin-top: 0;
+    border-bottom: 2px solid var(--color6);
 }
 
+h1 { font-size: 2rem; line-height: 2rem; }
+h2 { font-size: 1.5rem; line-height: 2rem; }
 h3 {
     font-size: 1rem;
     line-height: 1rem;
     margin-top: 0;
 }
 
-img {
-    border-radius: 0.3rem;
-    border: 1px solid var(--color6);
-}
-
-li, td, p {
+p,
+li,
+td {
     font-size: 1rem;
     margin-top: 0;
 }
@@ -121,23 +113,39 @@ hr {
     border-color: var(--color6);
 }
 
+/* ==========================================================================
+   5. LINKS & TEXT HIGHLIGHTS
+   ========================================================================== */
 a {
     font-weight: bold;
     transition: color 0.3s;
 }
 
-a:link, a:visited {
+a:link,
+a:visited {
     color: var(--color4);
 }
 
-a:active, a:hover {
+a:hover,
+a:active {
     color: var(--color5);
 }
 
-a.unavailable, a.unavailable:hover, a.unavailable:link, a.unavailable:visited, a.unavailable:active {
+a.unavailable {
     color: var(--color5);
-    text-decoration: none !important;
     pointer-events: none;
+    cursor: default;
+    text-decoration: none !important;
+}
+
+a.unavailable:hover { /* maintain same look on hover */
+    color: var(--color5);
+}
+
+.hidden-a {
+    color: var(--color2) !important;
+    text-decoration: none;
+    font-weight: normal;
     cursor: default;
 }
 
@@ -149,19 +157,16 @@ a b:active {
     color: var(--color5);
 }
 
-.hidden-a {
-    cursor: default;
-    color: var(--color2) !important;
-    text-decoration: unset;
-    font-weight: normal;
-}
-
+/* ==========================================================================
+   6. LOGO
+   ========================================================================== */
 .logo {
     font-size: 2rem;
     line-height: 3rem;
 }
 
-.logo:link, .logo:visited {
+.logo:link,
+.logo:visited {
     color: var(--color2);
     text-decoration: none;
 }
@@ -171,13 +176,16 @@ a b:active {
     text-decoration: none;
 }
 
-.img-sm {
-    max-width: 150px;
+/* ==========================================================================
+   7. IMAGES
+   ========================================================================== */
+img {
+    border-radius: 0.3rem;
+    border: 1px solid var(--color6);
 }
 
-.img-md {
-    max-width: 250px;
-}
+.img-sm { max-width: 150px; }
+.img-md { max-width: 250px; }
 
 .img-left {
     float: left;
@@ -189,19 +197,45 @@ a b:active {
     margin: 0 0 1rem 1rem;
 }
 
-.menu ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+/* ==========================================================================
+   8. NAVIGATION MENU
+   ========================================================================== */
+.menu {
+    position: fixed;
+    top: 7.2rem;
+    right: 0;
+    width: 20vw;
+    height: 76vh;
+    padding: 2rem;
+    background-color: var(--color3);
+    border: 3px solid var(--color6);
+    border-right: none;
+    border-radius: 0.3rem 0 0 0.3rem;
+    overflow-y: auto;
+    z-index: 1000;
 }
 
-.menu li {
-    margin-bottom: 0.5rem;
+.menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 900;
 }
+
+.menu-overlay.active { display: block; }
+
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li { margin-bottom: 0.5rem; }
 
 .menu a {
-    text-decoration: none;
     color: var(--color4);
+    text-decoration: none;
     transition: color 0.3s;
 }
 
@@ -210,10 +244,7 @@ a b:active {
     text-decoration: underline;
 }
 
-.bar {
-    display: none;
-}
-
+/* Burger Icon */
 .burger-menu {
     display: flex;
     flex-direction: column;
@@ -222,55 +253,130 @@ a b:active {
     cursor: pointer;
 }
 
-.menu {
-    display: block;
-    position: fixed;
-    top: 7.2rem;
-    right: 0;
-    padding: 2rem;
-    border: 3px solid var(--color6);
-    border-right: none;
-    background-color: var(--color3);
-    border-radius: 0.3rem 0 0 0.3rem;
-    width: 20vw;
-    height: 76vh;
-    overflow-y: auto;
+.bar {
+    display: none;
 }
 
+/* ==========================================================================
+   9. COMPONENTS & UTILITIES
+   ========================================================================== */
+/* Copy-to-Clipboard Button */
+.copy-button {
+    background: var(--color3);
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Display Utilities */
+.d-block { display: block; }
+.mb      { margin-bottom: 2rem; }
+.not-prepared { list-style-type: circle; }
+
+/* Tabs */
+.tabs {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    border-bottom: 2px solid var(--color6);
+}
+
+.tab-button {
+    background: var(--color3);
+    border: 2px solid transparent;
+    border-bottom: none;
+    border-radius: 0.3rem 0.3rem 0 0;
+    color: var(--color6);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    transition: background 0.2s;
+}
+
+.tab-button:hover:not(.active) {
+    background: var(--color1);
+    color: var(--color2);
+}
+
+.tab-button.active {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -2px;
+    border-color: var(--color6);
+    color: var(--color2);
+}
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+/* Text Alignment */
+.text-right { text-align: right; }
+
+/* Buttons */
+.btn {
+    background-color: var(--color7);
+    border: none;
+    border-radius: 0.3rem;
+    color: var(--color4);
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 0.5rem;
+    transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.btn:hover {
+    background-color: var(--color3);
+    box-shadow: 0 0 1rem rgba(0,0,0,0.6);
+    transform: translateY(-0.25rem);
+}
+
+.btn:active { transform: translateY(0); }
+
+/* Centered Grid Utility */
+.center {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    gap: 1rem;
+    margin: 2rem auto 1.5rem;
+}
+
+/* ==========================================================================
+   10. RESPONSIVE BREAKPOINTS
+   ========================================================================== */
+
 @media only screen and (max-width: 1200px) {
+    main {
+        width: 60vw;
+    }
+
     .menu {
         width: 30vw;
     }
 }
 
-.menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 900;
-}
-
-.menu-overlay.active {
-    display: block;
-}
-
-.menu {
-    z-index: 1000;
-}
-
-
 @media only screen and (max-width: 768px) {
-    /* Burger-Icon bleibt unverändert */
-    .burger-menu {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        height: 24px;
-        cursor: pointer;
+    main {
+        width: 90vw;
+        margin: 7.2rem auto 2rem auto;
+    }
+
+    .menu {
+        width: 70vw;
+        max-width: 300px;
+        min-width: 250px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+    }
+
+    .menu.show {
+        transform: translateX(0);
+    }
+
+    .img-sm:hover,
+    .img-md:hover {
+        transition: transform 0.3s ease;
+        transform: none;
     }
 
     .bar {
@@ -279,39 +385,9 @@ a b:active {
         height: 3px;
         background-color: var(--color2);
     }
+}
 
-    .menu {
-        display: block;
-        position: fixed;
-        top: 7.2rem;
-        right: 0;
-        width: 70vw;
-        max-width: 300px;
-        min-width: 250px;
-        height: calc(100% - 7.2rem);
-        padding: 2rem;
-        border: 3px solid var(--color6);
-        border-right: none;
-        background-color: var(--color3);
-        border-radius: 0.3rem 0 0 0.3rem;
-        overflow-y: auto;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        z-index: 1000;
-    }
-
-    .menu.show {
-        transform: translateX(0);
-    }
-
-    .menu-overlay {
-        display: none;
-    }
-
-    .menu-overlay.active {
-        display: block;
-    }
-
+@media only screen and (max-width: 600px) {
     main {
         width: 90vw;
         margin: 7.2rem auto 2rem auto;
@@ -322,90 +398,19 @@ a b:active {
         margin: auto;
     }
 
-    .img-sm {
-        max-width: 250px;
-        width: 100%;
-    }
-
+    .img-sm,
     .img-md {
-        max-width: 300px;
+        max-width: 100%;
         width: 100%;
     }
 
-    .img-left {
-        float: none;
-        margin: 0 auto 1rem auto;
-        display: block;
-    }
-
+    .img-left,
     .img-right {
         float: none;
-        margin: 0 auto 1rem auto;
         display: block;
+        margin: 0 auto 1rem auto;
     }
 
-    .img-sm:hover, .img-md:hover {
-        transition: transform 0.3s ease;
-        transform: none;
-    }
-}
-
-.copy-button {
-    background-color: var(--color3);
-    border: none;
-    font-size: 1rem;
-    cursor: pointer;
-}
-
-.d-block {
-    display: block;
-}
-
-.mb {
-    margin-bottom: 2rem;
-}
-
-.not-prepared {
-    list-style-type: circle;
-}
-
-.tabs {
-    display: flex;
-    border-bottom: 2px solid var(--color6);
-    margin-bottom: 2rem;
-    flex-wrap: wrap;
-}
-
-.tab-button {
-    background: var(--color3);
-    border: 2px solid transparent;
-    border-bottom: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    color: var(--color6);
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background 0.2s;
-    border-radius: 0.3rem 0.3rem 0 0;
-}
-
-.tab-button:not(.active):hover {
-    background: var(--color1);
-    color: var(--color2);
-    font-weight: bold;
-}
-
-.tab-button.active {
-    border: 2px solid var(--color6);
-    border-bottom: none;
-    color: var(--color2);
-    font-weight: bold;
-    margin-bottom: -2px;
-    position: relative;
-    z-index: 1;
-}
-
-@media only screen and (max-width: 600px) {
     .tabs {
         border: none;
         gap: 0.3rem;
@@ -414,58 +419,15 @@ a b:active {
     .tab-button {
         flex: 1 1 auto;
         min-width: 120px;
-        border-radius: 0.3rem;
         border: none;
+        border-radius: 0.3rem;
     }
 
     .tab-button.active {
-        border: none;
         background: var(--color1);
         margin-bottom: 0;
     }
-}
 
-.tab-content {
-    display: none;
-}
-
-.tab-content.active {
-    display: block;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.btn {
-    padding: 0.5rem;
-    font-size: 1rem;
-    color: var(--color4);
-    background-color: var(--color7);
-    border: none;
-    border-radius: 0.3rem;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.2s ease, background-color 0.2s ease;
-}
-
-.btn:hover {
-    background-color: var(--color3);
-    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.6);
-    transform: translateY(-0.25rem);
-}
-
-.btn:active {
-    transform: translateY(0);
-}
-
-.center {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    gap: 1rem;
-    margin: 2rem auto 1.5rem;
-}
-
-@media (max-width: 576px) {
     .center {
         grid-template-columns: 1fr;
     }
