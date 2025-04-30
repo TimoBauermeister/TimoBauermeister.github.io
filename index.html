@@ -82,7 +82,125 @@
             </a>
         </div>
     </section>
+    <section class="center">
+        <button id="download-md" class="btn">
+            ⏬ Herunterladen
+        </button>
+        <button id="copy-md" class="btn">
+            📋 Kopieren
+        </button>
+    </section>
 </main>
 <script src="loadHeaderFooter.js"></script>
+<script>
+    function htmlToMarkdown(el) {
+        let md = '';
+
+        el.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                const text = node.textContent.trim();
+                if (text) {
+                    md += text;
+                }
+                return;
+            }
+
+            if (node.nodeType === Node.ELEMENT_NODE) {
+                const tag = node.tagName.toLowerCase();
+                const content = node.textContent.trim();
+
+                switch (tag) {
+                    case 'h1':
+                        md += `# ${content}\n\n`;
+                        break;
+                    case 'h2':
+                        md += `## ${content}\n\n`;
+                        break;
+                    case 'h3':
+                        md += `### ${content}\n\n`;
+                        break;
+                    case 'p':
+                        md += `${content}\n\n`;
+                        break;
+                    case 'li':
+                        md += `- ${content}\n`;
+                        break;
+                    case 'ul':
+                    case 'ol':
+                        md += Array.from(node.children)
+                            .map(li => `- ${li.textContent.trim()}`)
+                            .join('\n') + '\n\n';
+                        break;
+                    case 'a':
+                        md += `[${node.textContent.trim()}](${node.href})`;
+                        break;
+                    case 'strong':
+                    case 'b':
+                        md += `**${content}**`;
+                        break;
+                    case 'em':
+                    case 'i':
+                        md += `*${content}*`;
+                        break;
+                    case 'img':
+                        md += `![${node.alt || ''}](${node.src})`;
+                        break;
+                    default:
+                        // für alle anderen Elemente rekursiv wandeln
+                        md += htmlToMarkdown(node);
+                }
+            }
+        });
+
+        return md;
+    }
+
+    async function generateAllMarkdown() {
+        const links = Array.from(document.querySelectorAll('a.card'))
+            .map(a => a.href)
+            .filter(h => h.endsWith('.html'));
+        const unique = [...new Set(links)];
+        let result = '';
+
+        for (const url of unique) {
+            try {
+                const res = await fetch(url);
+                const html = await res.text();
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+
+                const title = doc.querySelector('h1')?.innerText.trim() || doc.title.trim();
+                result += `# ${title}\n\n`;
+                result += htmlToMarkdown(doc.body);
+                result += '\n\n---\n\n';
+            } catch (e) {
+                console.error('Error loading', url, e);
+            }
+        }
+
+        return result;
+    }
+
+    document.getElementById('download-md').addEventListener('click', async () => {
+        const md = await generateAllMarkdown();
+        const blob = new Blob([md], {type: 'text/markdown'});
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = 'wiki.md';
+        a.click();
+        URL.revokeObjectURL(a.href);
+    });
+
+    document.getElementById('copy-md').addEventListener('click', async () => {
+        const md = await generateAllMarkdown();
+        try {
+            await navigator.clipboard.writeText(md);
+            alert('Markdown wurde in die Zwischenablage kopiert!');
+        } catch (err) {
+            console.error('Clipboard write failed', err);
+            alert('Konnte nicht in die Zwischenablage kopieren.');
+        }
+    });
+</script>
+
 </body>
 </html>
