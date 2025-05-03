@@ -20,6 +20,7 @@
 *::before,
 *::after {
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
     word-break: normal;
 }
 
@@ -78,7 +79,7 @@ section {
     width: 100%;
     max-width: 700px;
     margin: 0 auto 1rem;
-    display: block;
+    display: flow-root;
 }
 
 
@@ -131,15 +132,11 @@ a:active {
     color: var(--color5);
 }
 
-a.unavailable {
-    color: var(--color5);
-    pointer-events: none;
-    cursor: default;
+a.unavailable, a.unavailable:hover {
+    color: var(--color5) !important;
+    pointer-events: none !important;
+    cursor: default !important;
     text-decoration: none !important;
-}
-
-a.unavailable:hover { /* maintain same look on hover */
-    color: var(--color5);
 }
 
 .hidden-a {
@@ -151,6 +148,7 @@ a.unavailable:hover { /* maintain same look on hover */
 
 b {
     color: var(--color4);
+    transition: color 0.3s;
 }
 
 a b:active {
