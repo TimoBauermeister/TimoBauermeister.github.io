@@ -21,9 +21,9 @@ function loadHeader() {
             <li>🏛️ <a href="${baseUrl}/heirs-of-the-new-world/kultstaette.html">Kultstätte</a></li>
             <li>🎓 <a href="${baseUrl}/heirs-of-the-new-world/elarion.html">Akademie</a></li>
             <li>⛪ <a href="${baseUrl}/heirs-of-the-new-world/church-of-order.html">Kirche der Ordnung</a></li>
-            <li>🔮 <a href="${baseUrl}/heirs-of-the-new-world/magic-artifacts.html">Magische Artefakte</a></li>
             <li>🐦‍🔥️ <a href="${baseUrl}/heirs-of-the-new-world/sons-of-riley.html">Die Söhne von Riley</a></li>
             <li>🩸 <a href="${baseUrl}/heirs-of-the-new-world/the-blood-hunters.html">Die Blutjäger</a></li>
+            <li>🔮 <a href="${baseUrl}/heirs-of-the-new-world/magic-artifacts.html">Magische Artefakte</a></li>
           </ul>
         </nav>
     `;
