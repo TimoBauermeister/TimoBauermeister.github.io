@@ -47,3 +47,56 @@
         flex: 1 1 100%;
     }
 }
+
+/* ==== Inventory ==== */
+.currency-tracker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+.currency-tracker .coin {
+    flex: 1 1 calc(20% - 0.5rem);
+    padding: 0.25em 0.5em;
+    background-color: var(--color7);
+    border-radius: 0.3rem;
+    text-align: center;
+}
+.currency-tracker .coin label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.15em;
+}
+.currency-tracker .coin span {
+    display: block;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--color4);
+}
+
+.pp label { color: #e5e4e2; }
+.gp label { color: #ffd700; }
+.ep label { color: #ab9d7e; }
+.sp label { color: #c0c0c0; }
+.cp label { color: #b87333; }
+
+/* ==============================
+   Spell-Slot “Cards” (like money)
+   ============================== */
+.slots-tracker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 0.5rem 0 1rem;
+}
+
+.slots-tracker div {
+    min-width: 2rem;
+    min-height: 2rem;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 0.3rem;
+    background-color: var(--color7);
+    color: var(--color2);
+    font-weight: bold;
+}
