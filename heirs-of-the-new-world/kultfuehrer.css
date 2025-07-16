@@ -41,6 +41,11 @@
     display: inline-block;
     margin-right: 0.3em;
 }
+.is-ritual:after {
+    content: "🕯️";
+    display: inline-block;
+    margin-right: 0.3em;
+}
 
 @media (max-width: 600px) {
     .table-wrapper .tables table {
